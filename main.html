@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+  <div id="vue-app">
+    <div id="container-nav" class="shadow-lg p-3 mb-5 bg-white rounded">
+      <nav class="nav justify-content-center fixed-top">
+        <div id="nav-egg" v-on:click="changeToEgg()">
+          <a class="nav-link center" href="#">EGG</a>
+        </div>
+        <div id="nav-bonzai" v-on:click="changeToBonzai">
+          <a class="nav-link center" href="#">BONZAI</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="deliver center">
+      <p>Penghantaran Percuma / Free Delivery</p>
+    </div>
+    <hr>
+    <div class="contact center">
+      <p>Sila hubungi / Whatsapp Daniel</p>
+      <p class="num">011-1696 2828</p>
+    </div>
+
+    <!-- EGG -->
+    <div id="wrapper-egg" v-if="viewItem == 'egg'">
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col" class="table-title center">KAMPUNG</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="kpg in kampung" :key="kpg.size">
+            <td>
+              <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Saiz: {{ kpg.size }}</h5>
+                  <p class="card-text">
+                    1 Tray: RM {{ kpg.o }}
+                  </p>
+                  <p class="card-text">
+                    5 Tray: RM {{ kpg.f }}
+                  </p>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col" class="table-title center">NORMAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="chk in chicken" :key="chk.size">
+            <td>
+              <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Saiz: {{ chk.size }}</h5>
+                  <p class="card-text">
+                    1 Tray: RM {{ chk.o }}
+                  </p>
+                  <p class="card-text">
+                    5 Tray: RM {{ chk.f }}
+                  </p>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- BONZAI -->
+    <div id="wrapper-bonzai" v-if="viewItem == 'bonzai'">
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col" class="table-title center">BONZAI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="kpg in kampung" :key="kpg.size">
+            <td>
+              <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Saiz: {{ kpg.size }}</h5>
+                  <p class="card-text">
+                    1 Tray: RM {{ kpg.o }}
+                  </p>
+                  <p class="card-text">
+                    5 Tray: RM {{ kpg.f }}
+                  </p>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="deliver center">
+      <p>Penghantaran Percuma / Free Delivery</p>
+    </div>
+    <hr>
+    <div class="contact center">
+      <p>Sila hubungi / Whatsapp Daniel</p>
+      <p class="num">011-1696 2828</p>
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
