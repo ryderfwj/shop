@@ -27,20 +27,26 @@
         <div id="nav-egg" v-on:click="changeToEgg()">
           <a class="nav-link center" href="#">EGG</a>
         </div>
-        <div id="nav-bonzai" v-on:click="changeToBonzai">
-          <a class="nav-link center" href="#">BONZAI</a>
+        <div id="nav-garden" v-on:click="changeToGarden">
+          <a class="nav-link center" href="#">GARDEN</a>
         </div>
       </nav>
     </div>
 
-    <div class="deliver center">
-      <p>Penghantaran Percuma / Free Delivery</p>
+    <div id="info-top">
+      <div class="deliver center">
+        <p>Penghantaran Percuma / Free Delivery</p>
+      </div>
+      <hr>
+      <div class="contact center">
+        <p>Sila hubungi / Whatsapp Daniel</p>
+        <p class="num">011-1696 2828</p>
+      </div>
+      <div class="warning">
+        NOT DONE YET, ALL PICTURE AND WORDS ARE PLACEHOLDERS
+      </div>
     </div>
-    <hr>
-    <div class="contact center">
-      <p>Sila hubungi / Whatsapp Daniel</p>
-      <p class="num">011-1696 2828</p>
-    </div>
+
 
     <!-- EGG -->
     <div id="wrapper-egg" v-if="viewItem == 'egg'">
@@ -54,7 +60,7 @@
           <tr v-for="kpg in kampung" :key="kpg.size">
             <td>
               <div class="card">
-                <img src="..." class="card-img-top" alt="...">
+                <img v-bind:src="kpg.pic" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Saiz: {{ kpg.size }}</h5>
                   <p class="card-text">
@@ -69,6 +75,7 @@
           </tr>
         </tbody>
       </table>
+
       <table class="table table-borderless">
         <thead>
           <tr>
@@ -79,7 +86,7 @@
           <tr v-for="chk in chicken" :key="chk.size">
             <td>
               <div class="card">
-                <img src="..." class="card-img-top" alt="...">
+                <img v-bind:src="chk.pic" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Saiz: {{ chk.size }}</h5>
                   <p class="card-text">
@@ -97,8 +104,8 @@
       </table>
     </div>
 
-    <!-- BONZAI -->
-    <div id="wrapper-bonzai" v-if="viewItem == 'bonzai'">
+    <!-- GARDEN -->
+    <div id="wrapper-garden" v-if="viewItem == 'garden'">
       <table class="table table-borderless">
         <thead>
           <tr>
@@ -106,17 +113,43 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="kpg in kampung" :key="kpg.size">
+          <tr v-for="bzi in bonzai" :key="bzi.name">
             <td>
               <div class="card">
-                <img src="..." class="card-img-top" alt="...">
+                <img v-bind:src="bzi.pic" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Saiz: {{ kpg.size }}</h5>
+                  <h5 class="card-title">{{ bzi.name }}</h5>
                   <p class="card-text">
-                    1 Tray: RM {{ kpg.o }}
+                    {{ bzi.year }} year(s) old
                   </p>
                   <p class="card-text">
-                    5 Tray: RM {{ kpg.f }}
+                    Price: RM {{ bzi.price }}
+                  </p>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col" class="table-title center">SOIL & FERTILIZER</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="sl in soil" :key="sl.name">
+            <td>
+              <div class="card">
+                <img v-bind:src="sl.pic" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{ sl.name }}</h5>
+                  <p class="card-text">
+                    {{ sl.weight }} KG
+                  </p>
+                  <p class="card-text">
+                    Price: RM {{ sl.price }}
                   </p>
                 </div>
               </div>
@@ -126,14 +159,17 @@
       </table>
     </div>
 
-    <div class="deliver center">
-      <p>Penghantaran Percuma / Free Delivery</p>
+    <div id="info-bottom">
+      <div class="deliver center">
+        <p>Penghantaran Percuma / Free Delivery</p>
+      </div>
+      <hr>
+      <div class="contact center">
+        <p>Sila hubungi / Whatsapp Daniel</p>
+        <p class="num">011-1696 2828</p>
+      </div>
     </div>
-    <hr>
-    <div class="contact center">
-      <p>Sila hubungi / Whatsapp Daniel</p>
-      <p class="num">011-1696 2828</p>
-    </div>
+
   </div>
 
 
